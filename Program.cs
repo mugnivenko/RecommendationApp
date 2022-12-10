@@ -19,7 +19,11 @@ builder.Services.AddCors(corsOptions =>
 {
     corsOptions.AddPolicy(
         "fully permissive",
-        configurePolicy => configurePolicy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:44421").AllowCredentials());
+        configurePolicy => configurePolicy
+                            .AllowAnyHeader()
+                            .AllowAnyMethod()
+                            .WithOrigins("http://localhost:44421")
+                            .AllowCredentials());
 });
 
 // Add services to the container.

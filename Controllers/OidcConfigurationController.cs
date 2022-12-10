@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.AspNetCore.Mvc;
 
-namespace RecommendationApp.Controllers;
+namespace ReviewApp.Controllers;
 
 public class OidcConfigurationController : Controller
 {
@@ -18,7 +18,7 @@ public class OidcConfigurationController : Controller
     public IClientRequestParametersProvider ClientRequestParametersProvider { get; }
 
     [HttpGet("_configuration/{clientId}")]
-    public IActionResult GetClientRequestParameters([FromRoute]string clientId)
+    public IActionResult GetClientRequestParameters([FromRoute] string clientId)
     {
         var parameters = ClientRequestParametersProvider.GetClientParameters(HttpContext, clientId);
         return Ok(parameters);

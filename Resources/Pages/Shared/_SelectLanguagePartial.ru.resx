@@ -117,34 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Log in" xml:space="preserve">
-    <value>Вход</value>
-  </data>
-  <data name="Log in using your Google account" xml:space="preserve">
-    <value>Войдите используя ваш аккаунт Google</value>
-  </data>
-  <data name="Log in using your Microsoft account" xml:space="preserve">
-    <value>Войдите используя ваш аккаунт Microsoft</value>
-  </data>
-  <data name="Sign In with Google" xml:space="preserve">
-    <value>Войдите с Google</value>
-  </data>
-  <data name="Sign In with Microsoft" xml:space="preserve">
-    <value>Войдите с Microsoft</value>
-  </data>
-  <data name="Register" xml:space="preserve">
-    <value>Регистрация</value>
-  </data>
-  <data name="Register using your Google account" xml:space="preserve">
-    <value>Зарегистрируйтесь используя ваш аккаунт Google</value>
-  </data>
-  <data name="Register using your Microsoft account" xml:space="preserve">
-    <value>Зарегистрируйтесь используя ваш аккаунт Microsoft</value>
-  </data>
-  <data name="Sign Up with Google" xml:space="preserve">
-    <value>Регистрация с Google</value>
-  </data>
-  <data name="Sign Up with Microsoft" xml:space="preserve">
-    <value>Регистрация с Microsoft</value>
+  <data name="Language:" xml:space="preserve">
+    <value>Язык:</value>
   </data>
 </root>

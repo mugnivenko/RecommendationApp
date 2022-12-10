@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace RecommendationApp.Models;
+namespace ReviewApp.Models;
 
 public class ApplicationUser : IdentityUser
 {
-    
+
 }

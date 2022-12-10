@@ -3,9 +3,7 @@
 @using Microsoft.AspNetCore.Localization
 @using Microsoft.AspNetCore.Mvc.Localization
 @using Microsoft.Extensions.Localization
-@using RecommendationApp.Localization
 @inject IViewLocalizer Localizer
-@inject IStringLocalizer<IdentityResource> SharedLocalizer
 @{
     ViewData["Title"] = @Localizer["Log in"];
 }
@@ -40,7 +38,7 @@
                                     <path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"/>
                                     <path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"/>
                                 </svg>
-                                @SharedLocalizer["Sign In with Google"]
+                                @Localizer["Sign In with Google"]
                             </button>
                             <button type="submit" class="btn btn-outline-primary d-flex align-items-center gap-2 service-button" name="provider" value="Microsoft" title="@Localizer["Log in using your Microsoft account"]">
                                 <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23">
@@ -50,7 +48,7 @@
                                     <path fill="#05a6f0" d="M1 12h10v10H1z"/>
                                     <path fill="#ffba08" d="M12 12h10v10H12z"/>
                                 </svg>
-                                @SharedLocalizer["Sign In with Microsoft"]
+                                @Localizer["Sign In with Microsoft"]
                             </button>
                         </div>
                     </form>

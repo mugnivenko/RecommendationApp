@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "RecommendationApp": {
+    "ReviewApp": {
       "commandName": "Project",
       "launchBrowser": true,
       "applicationUrl": "https://localhost:7064;http://localhost:5281",

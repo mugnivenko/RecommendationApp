@@ -1,4 +1,4 @@
-namespace RecommendationApp;
+namespace ReviewApp;
 
 public class WeatherForecast
 {

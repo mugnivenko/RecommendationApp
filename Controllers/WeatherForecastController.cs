@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace RecommendationApp.Controllers;
+namespace ReviewApp.Controllers;
 
 [Authorize]
 [ApiController]

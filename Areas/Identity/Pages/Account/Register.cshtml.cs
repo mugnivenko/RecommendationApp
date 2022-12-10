@@ -101,8 +101,10 @@ namespace RecommendationApp.Areas.Identity.Pages.Account
         }
 
 
-        public async Task OnGetAsync(string returnUrl = null)
+        public async Task OnGetAsync(string returnUrl = null, string theme = null)
         {
+            @ViewData["Theme"] = theme;
+            @ViewData["TextTheme"] = theme == "dark" ? "ligth" : "dark";
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }

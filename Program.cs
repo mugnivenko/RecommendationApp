@@ -1,10 +1,17 @@
+using System.Reflection;
+using System.Globalization;
+
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
+
 using RecommendationApp.Data;
 using RecommendationApp.Models;
-using Microsoft.AspNetCore.Authentication.Google;
+using RecommendationApp.Localization;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
@@ -46,6 +53,31 @@ builder.Services.AddAuthentication().AddGoogle(googleOptions =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.AddMvc()
+    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+    .AddDataAnnotationsLocalization(options =>
+        {
+            options.DataAnnotationLocalizerProvider = (type, factory) =>
+            {
+                var assemblyName = new AssemblyName(typeof(IdentityResource).GetTypeInfo().Assembly.FullName);
+                return factory.Create("IdentityResource", assemblyName.Name);
+            };
+        });
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+    {
+        var supportedCultures = new List<CultureInfo>
+            {
+                new CultureInfo("en-US"),
+                new CultureInfo("ru")
+            };
+
+        options.DefaultRequestCulture = new RequestCulture("en-US");
+        options.SupportedCultures = supportedCultures;
+        options.SupportedUICultures = supportedCultures;
+    });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -58,6 +90,19 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+var supportedCultures = new[]
+    {
+        new CultureInfo("en-US"),
+        new CultureInfo("ru"),
+    };
+
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture("en-US"),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures = supportedCultures
+});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

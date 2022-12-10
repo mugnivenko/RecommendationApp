@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
   private async login(returnUrl: string): Promise<void> {
     const state: INavigationState = { returnUrl };
     const result = await this.authorizeService.signIn(state);
@@ -84,7 +83,10 @@ export class LoginComponent implements OnInit {
 
   private redirectToRegister(): any {
     this.redirectToApiAuthorizationPath(
-      `${ApplicationPaths.IdentityRegisterPath}?returnUrl=${encodeURI('/' + ApplicationPaths.Login)}`);
+      `${ApplicationPaths.IdentityRegisterPath}?returnUrl=${encodeURI(
+        '/' + ApplicationPaths.Login
+      )}&theme=ligth`
+    );
   }
 
   private redirectToProfile(): void {

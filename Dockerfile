@@ -4,11 +4,12 @@ WORKDIR /source
 ARG NODE_VERSION=18.12.1
 RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 ARG NVM_DIR=/root/.nvm
-RUN . "$NVM_DIR/nvm.sh" && nvm install NODE_VERSION
-RUN . "$NVM_DIR/nvm.sh" && nvm use NODE_VERSION
+RUN . "$NVM_DIR/nvm.sh" && nvm install $NODE_VERSION
+RUN . "$NVM_DIR/nvm.sh" && nvm use $NODE_VERSION
 RUN . "$NVM_DIR/nvm.sh" && nvm alias default node
-ENV PATH="/root/.nvm/versions/node/$NODE_VERSION/bin/:${PATH}"
+ENV PATH="/root/.nvm/versions/node/v$NODE_VERSION/bin/:${PATH}"
 RUN node --version
+RUN npm i -g npm@latest
 RUN npm --version
 
 COPY *.csproj .
